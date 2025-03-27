@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <Button
+        android:id="@+id/buttonAjouterPanier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajouter au panier" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titre :"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Année :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewTarif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tarif :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewDuree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Durée :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewCout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coût :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewClassification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classification :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textViewSpecial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Features :"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        android:paddingBottom="8dp" />
+
+</LinearLayout>
