@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
 
+
       // Bouton pour naviguer vers AfficherListeDvdsActivity
       Button buttonAfficherDvds = findViewById(R.id.button_afficher_dvds);
 

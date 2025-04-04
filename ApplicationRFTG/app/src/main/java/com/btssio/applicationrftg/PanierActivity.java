@@ -1,5 +1,6 @@
 package com.btssio.applicationrftg;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,8 +16,11 @@ import java.io.OutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PanierActivity extends AppCompatActivity {
 
@@ -99,14 +103,31 @@ public class PanierActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... voids) {
                 try {
-                    URL url = new URL("http://10.0.2.2:8080/toad/rental/add");
+                    SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                    int customerId = prefs.getInt("customerId", -1);
+
+                    Log.d("PANIER", "Customer ID récupéré : " + customerId); // 👈 Ajoute cette ligne
+
+                    if (customerId == -1) {
+                        Log.e("PANIER", "Utilisateur non authentifié");
+                        return null;
+                    }
+
+                    URL url = new URL(DonneesPartagees.getURLConnexion() + "/toad/rental/add");
                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("POST");
                     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     connection.setDoOutput(true);
 
-                    String params = "rental_date=2025-02-27&inventory_id=" + inventoryId +
-                            "&customer_id=1&return_date=2025-03-10&staff_id=1&last_update=2025-02-27";
+                    String todayDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+                    // 🔁 On utilise ici le vrai customer_id récupéré depuis les prefs
+                    String params = "rental_date=" + todayDate +
+                            "&inventory_id=" + inventoryId +
+                            "&customer_id=" + customerId +
+                            "&return_date=" +
+                            "&staff_id=1" +
+                            "&last_update=" + todayDate;
 
                     try (OutputStream os = connection.getOutputStream()) {
                         os.write(params.getBytes());
@@ -127,6 +148,7 @@ public class PanierActivity extends AppCompatActivity {
                     return null;
                 }
             }
+
 
             @Override
             protected void onPostExecute(String result) {

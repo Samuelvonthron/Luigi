@@ -64,7 +64,7 @@ public class AfficherDetailFilmActivity extends AppCompatActivity {
     }
 
     private void fetchFilmDetail(int filmId) {
-        String url = "http://10.0.2.2:8080/toad/film/getById?id=" + filmId;
+        String url = DonneesPartagees.getURLConnexion() +"/toad/film/getById?id=" + filmId;
 
         new AsyncTask<Void, Void, JSONObject>() {
             @Override
@@ -117,7 +117,7 @@ public class AfficherDetailFilmActivity extends AppCompatActivity {
     }
 
     private void fetchInventoryId(int filmId) {
-        String url = "http://10.0.2.2:8080/toad/inventory/available/getById?id=" + filmId;
+        String url = DonneesPartagees.getURLConnexion() +"/toad/inventory/available/getById?id=" + filmId;
 
         new AsyncTask<Void, Void, Integer>() {
             @Override
