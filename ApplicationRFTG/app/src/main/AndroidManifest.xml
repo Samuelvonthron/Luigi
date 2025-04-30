@@ -27,6 +27,7 @@
         </activity>
 
         <activity android:name=".MainActivity" />
+
         <activity android:name=".AfficherListeDvdsActivity" />
         <activity android:name=".AfficherDetailFilmActivity" />
         <activity android:name=".PanierActivity" />
